@@ -68,11 +68,14 @@ airport. For example, the ICAO code of Helsinki-Vantaa Airport is EFHK. You can 
 https://www.airport-data.com/world-airports/countries/FI-Finland-Airports.html
 ```python
 dashboard = {}
-print("Choose what you want to do:")
-print("n: add new airport")
-print("f: fetch airport name")
-print("ENTER to quit program")
-query = input()
+def askingInfo():
+    print("Choose what you want to do:")
+    print("n: add new airport")
+    print("f: fetch airport name")
+    print("ENTER to quit program")
+    return input()
+
+query = askingInfo()
 while query == "n" or query == "f":
     if query == "n":
         newIcao = input("input ICAO code: ")
@@ -84,11 +87,7 @@ while query == "n" or query == "f":
             print("Airport name:", dashboard[icao])
         else:
             print("Airport not found")
-    print("Choose what you want to do:")
-    print("n: add new airport")
-    print("f: fetch airport name")
-    print("ENTER to quit program")
-    query = input()
+    query = askingInfo()
 print("Thank you! Bye!")
 ```
 Output console:
