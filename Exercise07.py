@@ -36,12 +36,16 @@ for i in nameSet:
 # the program execution ends. The user can choose a new option as many times they want until they choose to quit.
 # (The ICAO code is an identifier that is unique to each airport. For example, the ICAO code of Helsinki-Vantaa Airport
 # is EFHK. You can easily find the ICAO codes of different airports online.)
+
 dashboard = {}
-print("Choose what you want to do:")
-print("n: add new airport")
-print("f: fetch airport name")
-print("ENTER to quit program")
-query = input()
+def askingInfo():
+    print("Choose what you want to do:")
+    print("n: add new airport")
+    print("f: fetch airport name")
+    print("ENTER to quit program")
+    return input()
+
+query = askingInfo()
 while query == "n" or query == "f":
     if query == "n":
         newIcao = input("input ICAO code: ")
@@ -53,9 +57,5 @@ while query == "n" or query == "f":
             print("Airport name:", dashboard[icao])
         else:
             print("Airport not found")
-    print("Choose what you want to do:")
-    print("n: add new airport")
-    print("f: fetch airport name")
-    print("ENTER to quit program")
-    query = input()
+    query = askingInfo()
 print("Thank you! Bye!")
